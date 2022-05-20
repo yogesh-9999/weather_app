@@ -4,7 +4,7 @@ import "./Show.css";
 export const Show = (props) => {
   return (
     <div className="container absolute top-40 flex flex-col w-full justify-center font-semibold">
-          <h1 className="h-10 text-center text-5xl font-mono tc">{props.cityname}</h1>
+          <h1 className="h-10 text-center text-3xl font-mono tc">{props.cityname}</h1>
 
           <h5 className="">
             {/* <i className={`wi ${props.weatherIcon} display-1`} /> */}
@@ -12,7 +12,7 @@ export const Show = (props) => {
 
           {/* Get Celsius */}
           {props.temp_celsius ? (
-            <h1 className="h-6 text-center text-3xl font-mono tc p-3 my-5">{props.temp_celsius}&deg;</h1>
+            <h1 className="h-6 text-center text-1xl font-mono tc p-3 my-5">{props.temp_celsius}&deg;</h1>
           ) : null}
 
           {/* show max and min temp */}
@@ -21,7 +21,7 @@ export const Show = (props) => {
           {/* Weather description */}
 
 
-          <h2 className="h-5 text-center text-3xl font-mono tc p-3">
+          <h2 className="h-5 text-center text-1xl font-mono tc p-3">
             {props.description.charAt(0).toUpperCase() +
               props.description.slice(1)}
           </h2>
@@ -35,7 +35,7 @@ export const Show = (props) => {
 function maxminTemp(min, max) {
   if (max && min) {
     return (
-      <h3 className="h-10 flex flex-col text-center text-3xl font-mono tc p-5 my-10">
+      <h3 className="h-10 flex flex-col text-center text-1xl font-mono tc p-5 my-10">
         <span className="px-4">Min Temerature: {min}&deg;</span>
         <span className="px-4">Max Temerature: {max}&deg;</span>
       </h3>

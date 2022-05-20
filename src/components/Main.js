@@ -4,7 +4,7 @@ import "./Main.css"
 const Main = () => {
   return (
     <div className='main'>
-        <div className="overlay">
+        <div className="overlay ">
         <video src={videoBg} autoPlay loop muted />
         </div>
        

@@ -1,4 +1,4 @@
-import React, { useState,props } from "react";
+import React, { useState } from "react";
 import { Show } from "./Show";
 import "./Wform.css";
 const Api_Key = "429736441cf3572838aa10530929f7cd";
@@ -21,45 +21,37 @@ export const Wform = () => {
   });
 
 
-  const [icon, setIcon] = useState({
-    Thunderstorm: "wi-thunderstorm",
-    Drizzle: "wi-sleet",
-    Rain: "wi-storm-showers",
-    Snow: "wi-snow",
-    Atmosphere: "wi-fog",
-    Clear: "wi-day-sunny",
-    Clouds: "wi-day-fog",
-  });
+ 
 
 
 
-  const get_WeatherIcon = (icons, rangeId) => {
-    switch (true) {
-      case rangeId >= 200 && rangeId < 232:
-        setWhet({ icon: icons.Thunderstorm });
-        break;
-      case rangeId >= 300 && rangeId <= 321:
-        setWhet({ icon: icons.Drizzle });
-        break;
-      case rangeId >= 500 && rangeId <= 521:
-        setWhet({ icon: icons.Rain });
-        break;
-      case rangeId >= 600 && rangeId <= 622:
-        this.setWhet({ icon: icons.Snow });
-        break;
-      case rangeId >= 701 && rangeId <= 781:
-        setWhet({ icon: icons.Atmosphere });
-        break;
-      case rangeId === 800:
-        this.setWhet({ icon: icons.Clear });
-        break;
-      case rangeId >= 801 && rangeId <= 804:
-        setWhet({ icon: icons.Clouds });
-        break;
-      default:
-        setWhet({ icon: icons.Clouds });
-    }
-  };
+  // const get_WeatherIcon = (icons, rangeId) => {
+  //   switch (true) {
+  //     case rangeId >= 200 && rangeId < 232:
+  //       setWhet({ icon: icons.Thunderstorm });
+  //       break;
+  //     case rangeId >= 300 && rangeId <= 321:
+  //       setWhet({ icon: icons.Drizzle });
+  //       break;
+  //     case rangeId >= 500 && rangeId <= 521:
+  //       setWhet({ icon: icons.Rain });
+  //       break;
+  //     case rangeId >= 600 && rangeId <= 622:
+  //       this.setWhet({ icon: icons.Snow });
+  //       break;
+  //     case rangeId >= 701 && rangeId <= 781:
+  //       setWhet({ icon: icons.Atmosphere });
+  //       break;
+  //     case rangeId === 800:
+  //       this.setWhet({ icon: icons.Clear });
+  //       break;
+  //     case rangeId >= 801 && rangeId <= 804:
+  //       setWhet({ icon: icons.Clouds });
+  //       break;
+  //     default:
+  //       setWhet({ icon: icons.Clouds });
+  //   }
+  // };
 
 
   const calCelsius = (temp) => {
@@ -68,6 +60,7 @@ export const Wform = () => {
   };
   const [country, setCountry] = useState("India");
   const [city, setCity] = useState("Mirzapur");
+
   const getWhether = async (e) => {
     console.log(country);
     console.log(city);
@@ -88,6 +81,7 @@ export const Wform = () => {
         temp_max:calCelsius(data.main.temp_max),
         temp_min:calCelsius(data.main.temp_min),
         description: data.weather[0].description,
+  
         error: false,
       });
 
@@ -166,7 +160,7 @@ export const Wform = () => {
     </div>
   );
 };
-const error = props => {
+const error = (props) => {
     return (
       <div className="alert alert-danger mx-5" role="alert">
         Please Enter City and Country...!
